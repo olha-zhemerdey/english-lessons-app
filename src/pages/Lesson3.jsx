@@ -63,6 +63,42 @@ function Lesson3() {
   const [answers, setAnswers] = useState({});
   const [score, setScore] = useState(null);
   const [grammarScore, setGrammarScore] = useState(null);
+  const [exercise3, setExercise3] = useState({
+    q1: "",
+    q2: "",
+    q3: "",
+    q4: "",
+    q5: "",
+  });
+
+  const [exercise3Score, setExercise3Score] = useState(null);
+
+  const handleExercise3 = (q, value) => {
+    setExercise3((prev) => ({
+      ...prev,
+      [q]: value,
+    }));
+  };
+
+  const checkExercise3 = () => {
+    const correct = {
+      q1: "a thing you achieved",
+      q2: "to help someone",
+      q3: "to stop trying",
+      q4: "to respect someone",
+      q5: "to continue progressing",
+    };
+
+    let points = 0;
+
+    Object.keys(correct).forEach((key) => {
+      if (exercise3[key] === correct[key]) {
+        points++;
+      }
+    });
+
+    setExercise3Score(points);
+  };
 
   const correctAnswers = {
     q1: "feed",
@@ -281,50 +317,53 @@ function Lesson3() {
 
         <div className="exercise-card">
           <p>1. achievement</p>
-
-          <select>
+          <select onChange={(e) => handleExercise3("q1", e.target.value)}>
             <option value="">Choose</option>
-            <option>a thing you achieved</option>
-            <option>to stop trying</option>
-            <option>to help someone</option>
+            <option value="a thing you achieved">a thing you achieved</option>
+            <option value="to stop trying">to stop trying</option>
+            <option value="to help someone">to help someone</option>
           </select>
 
           <p>2. support</p>
-
-          <select>
+          <select onChange={(e) => handleExercise3("q2", e.target.value)}>
             <option value="">Choose</option>
-            <option>to help someone</option>
-            <option>to choose</option>
-            <option>to lose hope</option>
+            <option value="to help someone">to help someone</option>
+            <option value="to choose">to choose</option>
+            <option value="to lose hope">to lose hope</option>
           </select>
 
           <p>3. give up</p>
-
-          <select>
+          <select onChange={(e) => handleExercise3("q3", e.target.value)}>
             <option value="">Choose</option>
-            <option>to stop trying</option>
-            <option>to continue</option>
-            <option>to admire</option>
+            <option value="to stop trying">to stop trying</option>
+            <option value="to continue">to continue</option>
+            <option value="to admire">to admire</option>
           </select>
 
           <p>4. admire</p>
-
-          <select>
+          <select onChange={(e) => handleExercise3("q4", e.target.value)}>
             <option value="">Choose</option>
-            <option>to respect someone</option>
-            <option>to feed someone</option>
-            <option>to solve something</option>
+            <option value="to respect someone">to respect someone</option>
+            <option value="to feed someone">to feed someone</option>
+            <option value="to solve something">to solve something</option>
           </select>
 
           <p>5. move forward</p>
-
-          <select>
+          <select onChange={(e) => handleExercise3("q5", e.target.value)}>
             <option value="">Choose</option>
-            <option>to continue progressing</option>
-            <option>to fall down</option>
-            <option>to fail</option>
+            <option value="to continue progressing">
+              to continue progressing
+            </option>
+            <option value="to fall down">to fall down</option>
+            <option value="to fail">to fail</option>
           </select>
         </div>
+
+        <button onClick={checkExercise3}>Check answers</button>
+
+        {exercise3Score !== null && (
+          <p className="score">You got {exercise3Score} / 5 🎯</p>
+        )}
       </section>
 
       {/* EXERCISE 4 */}

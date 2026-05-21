@@ -1,3 +1,20 @@
+:root {
+  /* Backgrounds */
+  --bg-main: #f4efe9;
+  --bg-card: #eee7df;
+  --bg-footer: #e9e1d8;
+
+  /* Text */
+  --text-main: #2f2a36;
+  --text-secondary: #6b647a;
+
+  /* Accents */
+  --accent-light: #b9aacd;
+  --accent-warm: #a08fc1;
+  --accent-soft: #d8cfe6;
+}
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -5,17 +22,19 @@
 }
 
 body {
-  background: #f7efe7;
+  background: var(--bg-main);
   font-family: Arial, sans-serif;
-  color: #3e2d2d;
+  color: var(--text-main);
 }
 
+/* LAYOUT */
 .page {
   padding: 80px 40px;
   display: grid;
   gap: 80px;
 }
 
+/* HERO */
 .hero {
   text-align: center;
   display: grid;
@@ -25,20 +44,22 @@ body {
 .subtitle {
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #9b7b6c;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
 h1 {
   font-size: 84px;
   line-height: 0.95;
+  color: var(--text-main);
 }
 
 .description {
   font-size: 20px;
-  color: #6b4f4f;
+  color: var(--text-secondary);
 }
 
+/* WORD GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -46,12 +67,18 @@ h1 {
 }
 
 .card {
-  background: #fffdfc;
+  background: var(--bg-card);
   padding: 30px;
   border-radius: 28px;
   display: grid;
   gap: 14px;
-  box-shadow: 0 10px 30px rgba(62, 45, 45, 0.06);
+  box-shadow: 0 10px 30px rgba(47, 42, 54, 0.06);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(47, 42, 54, 0.12);
 }
 
 .card h2 {
@@ -59,13 +86,14 @@ h1 {
 }
 
 .meaning {
-  color: #9b7b6c;
+  color: var(--accent-warm);
 }
 
 .example {
-  color: #6b4f4f;
+  color: var(--text-secondary);
 }
 
+/* LESSON */
 .lesson {
   display: grid;
   gap: 24px;
@@ -75,25 +103,39 @@ h1 {
   font-size: 34px;
 }
 
+/* EXERCISE CARD */
 .exercise-card {
-  background: #fffdfc;
+  background: var(--bg-card);
   padding: 30px;
   border-radius: 24px;
   display: grid;
   gap: 20px;
-  box-shadow: 0 10px 30px rgba(62, 45, 45, 0.06);
+  box-shadow: 0 10px 30px rgba(47, 42, 54, 0.06);
+  transition: 0.25s ease;
 }
 
+.exercise-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(47, 42, 54, 0.12);
+}
+
+/* INPUTS */
 input,
 textarea {
   width: 100%;
   border: none;
-  background: #f7efe7;
+  background: var(--bg-main);
   padding: 16px;
   border-radius: 16px;
   font-size: 16px;
-  color: #3e2d2d;
+  color: var(--text-main);
   outline: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-light);
+  background: #fff;
 }
 
 textarea {
@@ -103,18 +145,71 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: #9b7b6c;
+  color: var(--text-secondary);
 }
 
-.buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+/* BUTTONS */
+button {
+  background: var(--accent-warm);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
 }
 
 .secondary-btn {
   background: transparent;
-  border: 1px solid #3e2d2d;
-  color: #3e2d2d;
+  border: 1px solid var(--accent-warm);
+  color: var(--accent-warm);
+}
+
+/* SLANG */
+.slang-section {
+  display: grid;
+  gap: 20px;
+}
+
+.slang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.slang-card {
+  background: var(--bg-card);
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(47, 42, 54, 0.06);
+  transition: 0.2s;
+}
+
+.slang-card:hover {
+  transform: translateY(-3px);
+}
+
+/* SCORE */
+.score {
+  font-size: 18px;
+  color: var(--accent-warm);
+  font-weight: bold;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  .page {
+    padding: 40px 20px;
+    gap: 50px;
+  }
 }
