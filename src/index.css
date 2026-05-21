@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f7efe7;
+  font-family: Arial, sans-serif;
+  color: #3e2d2d;
+}
+
+.page {
+  padding: 80px 40px;
+  display: grid;
+  gap: 80px;
+}
+
+.hero {
+  text-align: center;
+  display: grid;
+  gap: 20px;
+}
+
+.subtitle {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #9b7b6c;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 84px;
+  line-height: 0.95;
+}
+
+.description {
+  font-size: 20px;
+  color: #6b4f4f;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fffdfc;
+  padding: 30px;
+  border-radius: 28px;
+  display: grid;
+  gap: 14px;
+  box-shadow: 0 10px 30px rgba(62, 45, 45, 0.06);
+}
+
+.card h2 {
+  font-size: 32px;
+}
+
+.meaning {
+  color: #9b7b6c;
+}
+
+.example {
+  color: #6b4f4f;
+}
+
+.lesson {
+  display: grid;
+  gap: 24px;
+}
+
+.lesson h2 {
+  font-size: 34px;
+}
+
+.exercise-card {
+  background: #fffdfc;
+  padding: 30px;
+  border-radius: 24px;
+  display: grid;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(62, 45, 45, 0.06);
+}
+
+input,
+textarea {
+  width: 100%;
+  border: none;
+  background: #f7efe7;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 16px;
+  color: #3e2d2d;
+  outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9b7b6c;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid #3e2d2d;
+  color: #3e2d2d;
+}
