@@ -14,10 +14,17 @@ const grammarPatterns = [
     title: "verb + sb + to",
     example: "My tutors expected me to do better.",
   },
-
   {
-    title: "adjective + to",
+    title: "verb + sb + infinitive (without to)",
+    example: "My teacher made me study harder.",
+  },
+  {
+    title: "adjective + preposition + -ing",
     example: "I was good at taking exams.",
+  },
+  {
+    title: "preposition + -ing",
+    example: "Before taking exams, I drink coffee.",
   },
 ];
 
