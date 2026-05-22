@@ -25,6 +25,12 @@ function Home() {
           <Link to="/lesson4">
             <button>Lesson 4</button>
           </Link>
+          <Link to="/lesson5">
+            <button>Lesson 5</button>
+          </Link>
+          <Link to="/lesson6">
+            <button>Lesson 6</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>
