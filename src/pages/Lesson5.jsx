@@ -621,6 +621,165 @@ function Lesson5() {
           </select>
         </div>
       </section>
+
+      <section className="lesson">
+        <h2>⚡ Exercise — Despite / Because of</h2>
+
+        <div className="exercise-card">
+          <p>Choose the correct answer.</p>
+
+          {/* QUESTION 1 */}
+          <p>1. ___ the rain, we went for a walk.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>Because of</option>
+            <option>Despite</option>
+          </select>
+
+          {/* QUESTION 2 */}
+          <p>2. The match was cancelled ___ the bad weather.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>despite</option>
+            <option>because of</option>
+          </select>
+
+          {/* QUESTION 3 */}
+          <p>3. ___ being tired, she finished her homework.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>Because of</option>
+            <option>Despite</option>
+          </select>
+
+          {/* QUESTION 4 */}
+          <p>4. He stayed at home ___ his illness.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>despite</option>
+            <option>because of</option>
+          </select>
+
+          {/* QUESTION 5 */}
+          <p>5. ___ the difficulties, they achieved success.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>Despite</option>
+            <option>Because of</option>
+          </select>
+
+          {/* QUESTION 6 */}
+          <p>6. She couldn’t sleep ___ the noise.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>despite</option>
+            <option>because of</option>
+          </select>
+
+          {/* QUESTION 7 */}
+          <p>7. ___ having little experience, he got the job.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>Because of</option>
+            <option>Despite</option>
+          </select>
+
+          {/* QUESTION 8 */}
+          <p>8. We arrived late ___ the traffic.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>despite</option>
+            <option>because of</option>
+          </select>
+        </div>
+      </section>
+      <section className="lesson">
+        <h2>🌟 Exercise — Confident & Successful</h2>
+
+        <div className="exercise-card">
+          <p>Choose the correct word.</p>
+
+          {/* QUESTION 1 */}
+          <p>1. She felt very ___ before her presentation.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>successful</option>
+            <option>confident</option>
+          </select>
+
+          {/* QUESTION 2 */}
+          <p>2. After years of hard work, he became a very ___ businessman.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>confident</option>
+            <option>successful</option>
+          </select>
+
+          {/* QUESTION 3 */}
+          <p>3. I am ___ that I can pass this exam.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>successful</option>
+            <option>confident</option>
+          </select>
+
+          {/* QUESTION 4 */}
+          <p>4. Their company is one of the most ___ in the country.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>successful</option>
+            <option>confident</option>
+          </select>
+
+          {/* QUESTION 5 */}
+          <p>5. She smiled and answered the questions in a ___ way.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>confident</option>
+            <option>successful</option>
+          </select>
+
+          {/* QUESTION 6 */}
+          <p>6. He dreams of becoming a ___ actor one day.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>successful</option>
+            <option>confident</option>
+          </select>
+
+          {/* QUESTION 7 */}
+          <p>7. You should be more ___ in yourself.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>successful</option>
+            <option>confident</option>
+          </select>
+
+          {/* QUESTION 8 */}
+          <p>8. The project was very ___ and earned a lot of money.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>confident</option>
+            <option>successful</option>
+          </select>
+        </div>
+      </section>
     </main>
   );
 }
