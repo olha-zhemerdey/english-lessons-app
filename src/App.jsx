@@ -9,6 +9,9 @@ import Lesson3 from "./pages/Lesson3";
 import Lesson4 from "./pages/Lesson4";
 import Lesson5 from "./pages/Lesson5";
 import Lesson6 from "./pages/Lesson6";
+import VerbPatterns from "./pages/Verbpatterns";
+import CinemaTVLesson from "./pages/Cinema";
+import PartsOfSpeechLesson from "./pages/PartsOfSpeech";
 import About from "./pages/About";
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
         <Route path="/lesson4" element={<Lesson4 />} />
         <Route path="/lesson5" element={<Lesson5 />} />
         <Route path="/lesson6" element={<Lesson6 />} />
+        <Route path="/verbpatterns" element={<VerbPatterns />} />
+        <Route path="/partsofspeech" element={<PartsOfSpeechLesson />} />
+        <Route path="/cinema" element={<CinemaTVLesson />} />
       </Routes>
     </BrowserRouter>
   );

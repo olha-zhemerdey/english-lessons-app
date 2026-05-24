@@ -213,3 +213,56 @@ button:hover {
     gap: 50px;
   }
 }
+
+.drag-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-bottom: 30px;
+}
+
+.drag-word {
+  background: #dfeaf6;
+
+  padding: 12px 18px;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  cursor: grab;
+
+  transition: 0.2s;
+}
+
+.drag-word:hover {
+  transform: scale(1.05);
+}
+
+.sentence-block {
+  margin-bottom: 30px;
+}
+
+.drop-zone {
+  margin-top: 12px;
+
+  min-height: 54px;
+
+  border: 2px dashed #b8b8b8;
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fafafa;
+
+  padding: 12px;
+
+  font-weight: 600;
+}
+
+.exercise-card button {
+  margin-top: 20px;
+}

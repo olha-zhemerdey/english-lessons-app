@@ -31,6 +31,15 @@ function Home() {
           <Link to="/lesson6">
             <button>Lesson 6</button>
           </Link>
+          <Link to="/verbpatterns">
+            <button>Verbpatterns</button>
+          </Link>
+          <Link to="/cinema">
+            <button>RMB1Plus6A</button>
+          </Link>
+          <Link to="/partsofspeech">
+            <button>PartsOfSpeechLesson</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>
