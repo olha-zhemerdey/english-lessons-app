@@ -319,6 +319,116 @@ function Lesson5() {
       {/* SPEAKING */}
 
       <section className="lesson">
+        <h2>🧠 Vocabulary Exercise — Collocations & Phrases</h2>
+
+        <div className="exercise-card">
+          <p>Choose the correct answer.</p>
+
+          {/* QUESTION 1 */}
+          <p>1. Students should have access ___ good education.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>for</option>
+            <option>to</option>
+            <option>at</option>
+          </select>
+
+          {/* QUESTION 2 */}
+          <p>2. My attitude ___ exams has changed this year.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>for</option>
+            <option>to</option>
+            <option>about</option>
+          </select>
+
+          {/* QUESTION 3 */}
+          <p>3. There has been a big increase ___ food prices.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>to</option>
+            <option>in</option>
+            <option>for</option>
+          </select>
+
+          {/* QUESTION 4 */}
+          <p>4. We need to change the plan ___ the bad weather.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>because</option>
+            <option>because of</option>
+            <option>despite</option>
+          </select>
+
+          {/* QUESTION 5 */}
+          <p>5. We need to find an alternative ___ this plan.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>for</option>
+            <option>with</option>
+            <option>to</option>
+          </select>
+
+          {/* QUESTION 6 */}
+          <p>6. She learned the poem ___ heart.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>with</option>
+            <option>by</option>
+            <option>from</option>
+          </select>
+
+          {/* QUESTION 7 */}
+          <p>7. His positive attitude ___ work impressed everyone.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>to</option>
+            <option>for</option>
+            <option>on</option>
+          </select>
+
+          {/* QUESTION 8 */}
+          <p>8. Scientists noticed an increase ___ temperature.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>in</option>
+            <option>to</option>
+            <option>at</option>
+          </select>
+
+          {/* QUESTION 9 */}
+          <p>
+            9. Online learning became an alternative ___ traditional classes.
+          </p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>with</option>
+            <option>to</option>
+            <option>for</option>
+          </select>
+
+          {/* QUESTION 10 */}
+          <p>10. I know this song ___ heart.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>on</option>
+            <option>by</option>
+            <option>from</option>
+          </select>
+        </div>
+      </section>
+
+      <section className="lesson">
         <h2>🗣 Speaking Practice</h2>
 
         <div className="exercise-card">
@@ -351,6 +461,164 @@ function Lesson5() {
           </p>
 
           <textarea placeholder="Write here..." />
+        </div>
+      </section>
+
+      <section className="lesson">
+        <h2>🌿 Vocabulary Practice — Nature, Life & Success</h2>
+
+        <div className="exercise-card">
+          <p>Choose the correct word.</p>
+
+          {/* QUESTION 1 */}
+          <p>1. Plants need water and sunlight to ___ well.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>protect</option>
+            <option>grow</option>
+            <option>behave</option>
+          </select>
+
+          {/* QUESTION 2 */}
+          <p>2. Birds build a ___ in trees.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>solution</option>
+            <option>nest</option>
+            <option>dream</option>
+          </select>
+
+          {/* QUESTION 3 */}
+          <p>3. Parents should ___ their children from danger.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>protect</option>
+            <option>describe</option>
+            <option>bring up</option>
+          </select>
+
+          {/* QUESTION 4 */}
+          <p>4. My grandmother helped to ___ me and my brother.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>bring up</option>
+            <option>dream</option>
+            <option>grow</option>
+          </select>
+
+          {/* QUESTION 5 */}
+          <p>5. Can you ___ your best friend?</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>behave</option>
+            <option>describe</option>
+            <option>decide</option>
+          </select>
+
+          {/* QUESTION 6 */}
+          <p>6. He always tries to ___ politely at school.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>behave</option>
+            <option>dream</option>
+            <option>protect</option>
+          </select>
+
+          {/* QUESTION 7 */}
+          <p>7. My biggest ___ is to travel around the world.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>decision</option>
+            <option>dream</option>
+            <option>solution</option>
+          </select>
+
+          {/* QUESTION 8 */}
+          <p>8. We finally found a ___ to the problem.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>success</option>
+            <option>solution</option>
+            <option>iron</option>
+          </select>
+
+          {/* QUESTION 9 */}
+          <p>9. She made the right ___ and changed her job.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>decision</option>
+            <option>nest</option>
+            <option>key</option>
+          </select>
+
+          {/* QUESTION 10 */}
+          <p>10. Hard work is the ___ to success.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>iron</option>
+            <option>key</option>
+            <option>dream</option>
+          </select>
+
+          {/* QUESTION 11 */}
+          <p>11. He became rich after his business was a great ___.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>success</option>
+            <option>solution</option>
+            <option>decision</option>
+          </select>
+
+          {/* QUESTION 12 */}
+          <p>12. Spinach is rich in ___.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>iron</option>
+            <option>nest</option>
+            <option>dream</option>
+          </select>
+
+          {/* QUESTION 13 */}
+          <p>13. My parents always ___ care of me when I’m ill.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>grow</option>
+            <option>take</option>
+            <option>describe</option>
+          </select>
+
+          {/* QUESTION 14 */}
+          <p>14. It was difficult to ___ what to do next.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>behave</option>
+            <option>decide</option>
+            <option>protect</option>
+          </select>
+
+          {/* QUESTION 15 */}
+          <p>15. She comes from a very ___ family.</p>
+
+          <select>
+            <option value="">Choose</option>
+            <option>rich</option>
+            <option>iron</option>
+            <option>key</option>
+          </select>
         </div>
       </section>
     </main>
