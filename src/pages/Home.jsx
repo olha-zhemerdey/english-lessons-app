@@ -40,6 +40,9 @@ function Home() {
           <Link to="/partsofspeech">
             <button>PartsOfSpeechLesson</button>
           </Link>
+          <Link to="/obligationlesson">
+            <button>ObligationLesson</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>

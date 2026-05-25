@@ -12,6 +12,7 @@ import Lesson6 from "./pages/Lesson6";
 import VerbPatterns from "./pages/Verbpatterns";
 import CinemaTVLesson from "./pages/Cinema";
 import PartsOfSpeechLesson from "./pages/PartsOfSpeech";
+import ObligationLesson from "./pages/ObligationLesson";
 import About from "./pages/About";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/verbpatterns" element={<VerbPatterns />} />
         <Route path="/partsofspeech" element={<PartsOfSpeechLesson />} />
         <Route path="/cinema" element={<CinemaTVLesson />} />
+        <Route path="/obligationlesson" element={<ObligationLesson />} />
       </Routes>
     </BrowserRouter>
   );
