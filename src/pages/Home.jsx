@@ -43,6 +43,12 @@ function Home() {
           <Link to="/obligationlesson">
             <button>ObligationLesson</button>
           </Link>
+          <Link to="/thereisare">
+            <button>ThereIsThereAreLesson</button>
+          </Link>
+          <Link to="/inorderto">
+            <button>Purpose Clauses щоб</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>

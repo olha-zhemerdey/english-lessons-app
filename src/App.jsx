@@ -13,6 +13,8 @@ import VerbPatterns from "./pages/Verbpatterns";
 import CinemaTVLesson from "./pages/Cinema";
 import PartsOfSpeechLesson from "./pages/PartsOfSpeech";
 import ObligationLesson from "./pages/ObligationLesson";
+import ThereIsThereAreLesson from "./pages/Thereisare";
+import PurposeLesson from "./pages/InOrderTo";
 import About from "./pages/About";
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
         <Route path="/partsofspeech" element={<PartsOfSpeechLesson />} />
         <Route path="/cinema" element={<CinemaTVLesson />} />
         <Route path="/obligationlesson" element={<ObligationLesson />} />
+        <Route path="/thereisare" element={<ThereIsThereAreLesson />} />
+        <Route path="/inorderto" element={<PurposeLesson />} />
       </Routes>
     </BrowserRouter>
   );

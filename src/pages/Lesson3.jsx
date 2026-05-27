@@ -3,122 +3,112 @@ import { useState } from "react";
 
 const words = [
   {
-    word: "take care",
-    meaning: "look after someone",
-    example: "Take care of your dog.",
+    word: "feed",
+    meaning: "give food to someone or something",
+    example: "Please feed the cat.",
   },
-  { word: "feed", meaning: "give food", example: "Feed the cat." },
-  { word: "admire", meaning: "respect someone", example: "I admire her." },
-  { word: "decide", meaning: "choose", example: "We decided to stay." },
-  {
-    word: "successful",
-    meaning: "achieving good results",
-    example: "She is successful in her career.",
-  },
-  { word: "find", meaning: "discover", example: "I can’t find my keys." },
-  { word: "fall", meaning: "move down accidentally", example: "He fell down." },
-  { word: "award", meaning: "a prize", example: "She won an award." },
-  {
-    word: "common",
-    meaning: "usual / normal",
-    example: "This mistake is very common.",
-  },
+
   {
     word: "support",
     meaning: "help someone",
-    example: "Friends support each other.",
+    example: "My friends support me.",
   },
+
   {
-    word: "move forward",
-    meaning: "continue progressing",
-    example: "We need to move forward.",
+    word: "award",
+    meaning: "a prize",
+    example: "She won an award.",
   },
-  { word: "give up", meaning: "stop trying", example: "Never give up." },
+
+  {
+    word: "give up",
+    meaning: "stop trying",
+    example: "Never give up.",
+  },
+
   {
     word: "achievement",
-    meaning: "something you achieved",
-    example: "Passing the exam is an achievement.",
+    meaning: "something successful",
+    example: "Graduation was a big achievement.",
   },
+
   {
-    word: "something",
-    meaning: "an unspecified thing",
-    example: "I need something to drink.",
+    word: "protect",
+    meaning: "keep safe",
+    example: "Glasses protect your eyes.",
   },
+
   {
-    word: "be proud",
-    meaning: "feel satisfaction",
-    example: "Be proud of your work.",
+    word: "cheap",
+    meaning: "not expensive",
+    example: "This bag was cheap.",
   },
-  { word: "fail", meaning: "not succeed", example: "Don’t fail the exam." },
-  { word: "pass", meaning: "succeed in exam", example: "She passed the test." },
-  { word: "solve", meaning: "find answer", example: "We solved the problem." },
+
   {
-    word: "hope",
-    meaning: "want something to happen",
-    example: "I hope you are okay.",
+    word: "torch",
+    meaning: "portable light",
+    example: "Take a torch camping.",
+  },
+
+  {
+    word: "tent",
+    meaning: "camping shelter",
+    example: "We slept in a tent.",
+  },
+
+  {
+    word: "charge",
+    meaning: "put energy into a device",
+    example: "I need to charge my phone.",
+  },
+
+  {
+    word: "insect",
+    meaning: "small six-legged animal",
+    example: "An insect flew inside.",
   },
 ];
 
-function Lesson3() {
+const correctAnswers = {
+  q1: "feed",
+  q2: "support",
+  q3: "award",
+  q4: "give up",
+  q5: "achievement",
+  q6: "protect",
+  q7: "cheap",
+  q8: "torch",
+  q9: "tent",
+  q10: "charge",
+};
+
+const grammarAnswers = {
+  g1: "has been finished",
+  g2: "have been given",
+  g3: "has been solved",
+  g4: "has been organized",
+  g5: "have been supported",
+};
+
+function VocabularyLesson() {
   const [answers, setAnswers] = useState({});
   const [score, setScore] = useState(null);
+
+  const [grammar, setGrammar] = useState({});
   const [grammarScore, setGrammarScore] = useState(null);
-  const [exercise3, setExercise3] = useState({
-    q1: "",
-    q2: "",
-    q3: "",
-    q4: "",
-    q5: "",
-  });
 
-  const [exercise3Score, setExercise3Score] = useState(null);
-
-  const handleExercise3 = (q, value) => {
-    setExercise3((prev) => ({
+  const handleChange = (q, value) => {
+    setAnswers((prev) => ({
       ...prev,
       [q]: value,
     }));
   };
 
-  const checkExercise3 = () => {
-    const correct = {
-      q1: "a thing you achieved",
-      q2: "to help someone",
-      q3: "to stop trying",
-      q4: "to respect someone",
-      q5: "to continue progressing",
-    };
-
-    let points = 0;
-
-    Object.keys(correct).forEach((key) => {
-      if (exercise3[key] === correct[key]) {
-        points++;
-      }
-    });
-
-    setExercise3Score(points);
-  };
-
-  const correctAnswers = {
-    q1: "feed",
-    q2: "support",
-    q3: "award",
-    q4: "give up",
-    q5: "achievement",
-  };
-
-  const grammarAnswers = {
-    g1: "has been solved",
-    g2: "have been given",
-    g3: "has been awarded",
-  };
-
-  const handleChange = (q, value) => {
-    setAnswers({
-      ...answers,
+  const handleGrammar = (q, value) => {
+    setGrammar((prev) => ({
+      ...prev,
       [q]: value,
-    });
+    }));
   };
 
   const checkAnswers = () => {
@@ -133,11 +123,11 @@ function Lesson3() {
     setScore(points);
   };
 
-  const checkGrammarAnswers = () => {
+  const checkGrammar = () => {
     let points = 0;
 
     Object.keys(grammarAnswers).forEach((key) => {
-      if (answers[key] === grammarAnswers[key]) {
+      if (grammar[key]?.toLowerCase().trim() === grammarAnswers[key]) {
         points++;
       }
     });
@@ -150,324 +140,282 @@ function Lesson3() {
       {/* HERO */}
 
       <section className="hero">
-        <p className="subtitle">Lesson 03</p>
+        <p className="subtitle">Vocabulary + Grammar</p>
 
-        <h1>Success & Motivation ✨</h1>
+        <h1>English Practice Lesson 🌿</h1>
 
         <p className="description">
-          Learn vocabulary about goals, achievements and Present Perfect
-          Passive.
+          Learn useful vocabulary and practise grammar with interactive
+          exercises.
         </p>
       </section>
 
       {/* VOCABULARY */}
 
-      <section className="grid">
-        {words.map((item) => (
-          <div className="card" key={item.word}>
-            <h2>{item.word}</h2>
+      <section className="lesson">
+        <h2>📚 Vocabulary Box</h2>
 
-            <p className="meaning">{item.meaning}</p>
+        <div className="grid">
+          {words.map((item) => (
+            <div className="card" key={item.word}>
+              <h3>{item.word}</h3>
 
-            <p className="example">{item.example}</p>
-          </div>
-        ))}
+              <p>{item.meaning}</p>
+
+              <small>{item.example}</small>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* EXERCISE 1 */}
 
-      {/* EXERCISE 1 */}
-
       <section className="lesson">
-        <h2>🌿 Exercise 1 — Choose the correct word</h2>
+        <h2>✏️ Exercise 1 — Choose the correct word</h2>
 
         <div className="exercise-card">
           <p>1. Please ___ the dog before you leave.</p>
 
           <select onChange={(e) => handleChange("q1", e.target.value)}>
             <option value="">Choose</option>
+
             <option value="feed">feed</option>
-            <option value="sell">sell</option>
-            <option value="move">move</option>
+
+            <option value="charge">charge</option>
+
+            <option value="protect">protect</option>
           </select>
 
           <p>2. My parents always ___ me when I feel sad.</p>
 
           <select onChange={(e) => handleChange("q2", e.target.value)}>
             <option value="">Choose</option>
+
             <option value="support">support</option>
-            <option value="fall">fall</option>
-            <option value="pass">pass</option>
+
+            <option value="charge">charge</option>
+
+            <option value="protect">protect</option>
           </select>
 
           <p>3. She won an ___ for her art project.</p>
 
           <select onChange={(e) => handleChange("q3", e.target.value)}>
             <option value="">Choose</option>
+
             <option value="award">award</option>
-            <option value="alarm">alarm</option>
-            <option value="event">event</option>
+
+            <option value="torch">torch</option>
+
+            <option value="tent">tent</option>
           </select>
 
           <p>4. Never ___ your dreams.</p>
 
           <select onChange={(e) => handleChange("q4", e.target.value)}>
             <option value="">Choose</option>
+
             <option value="give up">give up</option>
-            <option value="move">move</option>
-            <option value="decide">decide</option>
+
+            <option value="support">support</option>
+
+            <option value="feed">feed</option>
           </select>
 
-          <p>5. Passing the exam was a huge ___.</p>
+          <p>5. Passing the exam was a big ___.</p>
 
           <select onChange={(e) => handleChange("q5", e.target.value)}>
             <option value="">Choose</option>
+
             <option value="achievement">achievement</option>
-            <option value="hope">hope</option>
-            <option value="something">something</option>
+
+            <option value="insect">insect</option>
+
+            <option value="torch">torch</option>
           </select>
 
-          <p>6. I really ___ people who work hard.</p>
+          <p>6. Sunglasses help ___ your eyes from the sun.</p>
 
           <select onChange={(e) => handleChange("q6", e.target.value)}>
             <option value="">Choose</option>
-            <option value="admire">admire</option>
+
+            <option value="protect">protect</option>
+
+            <option value="charge">charge</option>
+
             <option value="feed">feed</option>
-            <option value="solve">solve</option>
           </select>
 
-          <p>7. It is very ___ to feel nervous before exams.</p>
+          <p>7. This backpack was very ___.</p>
 
           <select onChange={(e) => handleChange("q7", e.target.value)}>
             <option value="">Choose</option>
-            <option value="common">common</option>
-            <option value="successful">successful</option>
-            <option value="proud">proud</option>
+
+            <option value="cheap">cheap</option>
+
+            <option value="award">award</option>
+
+            <option value="support">support</option>
           </select>
 
-          <p>8. We need to ___ and continue working.</p>
+          <p>8. We used a ___ while camping at night.</p>
 
           <select onChange={(e) => handleChange("q8", e.target.value)}>
             <option value="">Choose</option>
-            <option value="move forward">move forward</option>
-            <option value="fall">fall</option>
-            <option value="give up">give up</option>
+
+            <option value="torch">torch</option>
+
+            <option value="tent">tent</option>
+
+            <option value="insect">insect</option>
           </select>
 
-          <p>9. I hope we can ___ a solution together.</p>
+          <p>9. We slept in a ___ near the lake.</p>
 
           <select onChange={(e) => handleChange("q9", e.target.value)}>
             <option value="">Choose</option>
-            <option value="find">find</option>
-            <option value="feed">feed</option>
-            <option value="sell">sell</option>
+
+            <option value="tent">tent</option>
+
+            <option value="torch">torch</option>
+
+            <option value="charge">charge</option>
           </select>
 
-          <p>10. She finally ___ to study abroad.</p>
+          <p>10. I need to ___ my phone.</p>
 
           <select onChange={(e) => handleChange("q10", e.target.value)}>
             <option value="">Choose</option>
-            <option value="decided">decided</option>
-            <option value="supported">supported</option>
-            <option value="passed">passed</option>
+
+            <option value="charge">charge</option>
+
+            <option value="protect">protect</option>
+
+            <option value="feed">feed</option>
           </select>
-        </div>
 
-        <button onClick={checkAnswers}>Check answers</button>
+          <button onClick={checkAnswers}>Check answers</button>
 
-        {score !== null && <p className="score">You got {score} / 10 🎯</p>}
-      </section>
-
-      {/* EXERCISE 2 */}
-
-      <section className="lesson">
-        <h2>✏️ Exercise 2 — Complete the sentences</h2>
-
-        <div className="exercise-card">
-          <p>1. I’m very proud of my biggest __________.</p>
-          <input type="text" placeholder="Type here..." />
-
-          <p>2. Don’t __________ even if the task is difficult.</p>
-          <input type="text" placeholder="Type here..." />
-
-          <p>3. My friends always __________ me.</p>
-          <input type="text" placeholder="Type here..." />
-
-          <p>4. We hope to __________ the problem soon.</p>
-          <input type="text" placeholder="Type here..." />
-
-          <p>5. It is common to __________ mistakes while learning.</p>
-          <input type="text" placeholder="Type here..." />
-
-          <p>6. She was very happy when she __________ the exam.</p>
-          <input type="text" placeholder="Type here..." />
-
-          <p>7. I really __________ successful people.</p>
-          <input type="text" placeholder="Type here..." />
-
-          <p>8. We need to __________ after failure.</p>
-          <input type="text" placeholder="Type here..." />
+          {score !== null && (
+            <p className="score">You got {score} / 10 correct 🎯</p>
+          )}
         </div>
       </section>
 
-      {/* EXERCISE 3 */}
-
       <section className="lesson">
-        <h2>🧩 Exercise 3 — Match the words with meanings</h2>
+        <h2>📖 Reading</h2>
 
         <div className="exercise-card">
-          <p>1. achievement</p>
-          <select onChange={(e) => handleExercise3("q1", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="a thing you achieved">a thing you achieved</option>
-            <option value="to stop trying">to stop trying</option>
-            <option value="to help someone">to help someone</option>
-          </select>
-
-          <p>2. support</p>
-          <select onChange={(e) => handleExercise3("q2", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="to help someone">to help someone</option>
-            <option value="to choose">to choose</option>
-            <option value="to lose hope">to lose hope</option>
-          </select>
-
-          <p>3. give up</p>
-          <select onChange={(e) => handleExercise3("q3", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="to stop trying">to stop trying</option>
-            <option value="to continue">to continue</option>
-            <option value="to admire">to admire</option>
-          </select>
-
-          <p>4. admire</p>
-          <select onChange={(e) => handleExercise3("q4", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="to respect someone">to respect someone</option>
-            <option value="to feed someone">to feed someone</option>
-            <option value="to solve something">to solve something</option>
-          </select>
-
-          <p>5. move forward</p>
-          <select onChange={(e) => handleExercise3("q5", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="to continue progressing">
-              to continue progressing
-            </option>
-            <option value="to fall down">to fall down</option>
-            <option value="to fail">to fail</option>
-          </select>
-        </div>
-
-        <button onClick={checkExercise3}>Check answers</button>
-
-        {exercise3Score !== null && (
-          <p className="score">You got {exercise3Score} / 5 🎯</p>
-        )}
-      </section>
-
-      {/* EXERCISE 4 */}
-
-      <section className="lesson">
-        <h2>📚 Grammar — Present Perfect Passive</h2>
-
-        <div className="exercise-card">
-          <p className="hint">Structure:</p>
+          <h3>A Weekend in the Mountains</h3>
 
           <p>
-            <b>has / have + been + V3</b>
+            Last weekend, my friends and I decided to go camping in the
+            mountains. We wanted a cheap holiday away from the busy city, so we
+            packed our bags and left early in the morning. When we arrived, we
+            put up our tent near a river and prepared dinner outside.
           </p>
 
-          <p>Example:</p>
+          <p>
+            During the evening, it became very dark, so we used torches to walk
+            around the campsite. Unfortunately, there were many insects near the
+            water, so we used special spray to protect ourselves. Luckily, I had
+            also remembered to charge my phone before the trip, which was useful
+            when we needed a map.
+          </p>
 
-          <p>The problem has been solved.</p>
+          <p>
+            Although the weather was cold at night, the experience was amazing.
+            Camping helped us relax and spend more time in nature.
+          </p>
         </div>
       </section>
 
-      {/* EXERCISE 5 */}
+      {/* READING QUESTIONS */}
 
       <section className="lesson">
-        <h2>✨ Exercise 5 — Choose the correct grammar form</h2>
+        <h2>💬 Reading Questions</h2>
 
         <div className="exercise-card">
-          <p>1. The project __________ successfully.</p>
+          <p>1. Why did they choose camping?</p>
 
-          <select onChange={(e) => handleChange("g1", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="has been finished">has been finished</option>
-            <option value="has finished">has finished</option>
-            <option value="have been finish">have been finish</option>
-          </select>
+          <p>2. Where did they put up the tent?</p>
 
-          <p>2. The winners __________ an award.</p>
+          <p>3. Why did they use torches?</p>
 
-          <select onChange={(e) => handleChange("g2", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="have been given">have been given</option>
-            <option value="has gave">has gave</option>
-            <option value="have gave">have gave</option>
-          </select>
+          <p>4. What problem did they have near the river?</p>
 
-          <p>3. The problem __________ already.</p>
-
-          <select onChange={(e) => handleChange("g3", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="has been solved">has been solved</option>
-            <option value="has solved">has solved</option>
-            <option value="have solve">have solve</option>
-          </select>
-
-          <p>4. A new event __________ this month.</p>
-
-          <select onChange={(e) => handleChange("g4", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="has been organized">has been organized</option>
-            <option value="has organized">has organized</option>
-            <option value="have been organize">have been organize</option>
-          </select>
-
-          <p>5. Many students __________ by their teachers.</p>
-
-          <select onChange={(e) => handleChange("g5", e.target.value)}>
-            <option value="">Choose</option>
-            <option value="have been supported">have been supported</option>
-            <option value="have supported">have supported</option>
-            <option value="has been support">has been support</option>
-          </select>
+          <p>5. Why was the phone useful?</p>
         </div>
-
-        <button onClick={checkGrammarAnswers}>Check grammar answers</button>
-
-        {grammarScore !== null && (
-          <p className="score">You got {grammarScore} / 5 ✨</p>
-        )}
       </section>
 
-      {/* EXERCISE 6 */}
+      {/* GRAMMAR */}
 
       <section className="lesson">
-        <h2>🗣 Writing Practice</h2>
+        <h2>🧠 Grammar — Present Perfect Passive</h2>
 
         <div className="exercise-card">
-          <p>1. Write about an achievement you are proud of.</p>
+          <p>1. The work __________ (finish).</p>
 
-          <textarea placeholder="Write here..." />
+          <input
+            type="text"
+            onChange={(e) => handleGrammar("g1", e.target.value)}
+          />
 
-          <p>2. Describe a difficult situation you didn’t give up on.</p>
+          <p>2. The awards __________ (give).</p>
 
-          <textarea placeholder="Write here..." />
+          <input
+            type="text"
+            onChange={(e) => handleGrammar("g2", e.target.value)}
+          />
 
-          <p>3. Who supports you the most in life?</p>
+          <p>3. The problem __________ (solve).</p>
 
-          <textarea placeholder="Write here..." />
+          <input
+            type="text"
+            onChange={(e) => handleGrammar("g3", e.target.value)}
+          />
 
-          <p>4. What successful person do you admire?</p>
+          <p>4. The event __________ (organize).</p>
 
-          <textarea placeholder="Write here..." />
+          <input
+            type="text"
+            onChange={(e) => handleGrammar("g4", e.target.value)}
+          />
+
+          <p>5. The students __________ (support).</p>
+
+          <input
+            type="text"
+            onChange={(e) => handleGrammar("g5", e.target.value)}
+          />
+
+          <button onClick={checkGrammar}>Check grammar</button>
+
+          {grammarScore !== null && (
+            <p className="score">You got {grammarScore} / 5 correct ✨</p>
+          )}
+        </div>
+      </section>
+
+      {/* SPEAKING */}
+
+      <section className="lesson">
+        <h2>🗣 Speaking Practice</h2>
+
+        <div className="exercise-card">
+          <p>1. Have you ever slept in a tent?</p>
+
+          <p>2. What do you usually take camping?</p>
+
+          <p>3. How do you protect yourself from insects?</p>
+
+          <p>4. Do you prefer cheap or expensive holidays?</p>
+
+          <p>5. What achievements are you proud of?</p>
         </div>
       </section>
     </main>
   );
 }
 
-export default Lesson3;
+export default VocabularyLesson;
