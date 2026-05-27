@@ -1,121 +1,209 @@
 import "../index.css";
 import { useState } from "react";
 
-const words = [
+const vocabulary = [
   {
-    word: "feed",
-    meaning: "give food to someone or something",
-    example: "Please feed the cat.",
+    word: "difference between",
+    meaning: "how two things are not the same",
+    example: "What is the difference between a laptop and a tablet?",
   },
 
   {
-    word: "support",
-    meaning: "help someone",
-    example: "My friends support me.",
+    word: "attitude to",
+    meaning: "the way you think or feel about something",
+    example: "Her attitude to learning is positive.",
   },
 
   {
-    word: "award",
-    meaning: "a prize",
-    example: "She won an award.",
+    word: "access to",
+    meaning: "the opportunity to use or get something",
+    example: "Students have access to online courses.",
   },
 
   {
-    word: "give up",
-    meaning: "stop trying",
-    example: "Never give up.",
+    word: "increase in",
+    meaning: "a rise in something",
+    example: "There has been an increase in prices.",
   },
 
   {
-    word: "achievement",
-    meaning: "something successful",
-    example: "Graduation was a big achievement.",
+    word: "alternative to",
+    meaning: "something different instead of another thing",
+    example: "Walking is an alternative to driving.",
   },
 
   {
-    word: "protect",
-    meaning: "keep safe",
-    example: "Glasses protect your eyes.",
+    word: "by heart",
+    meaning: "from memory",
+    example: "She knows the poem by heart.",
   },
 
   {
-    word: "cheap",
-    meaning: "not expensive",
-    example: "This bag was cheap.",
+    word: "warm",
+    meaning: "slightly hot or comfortable",
+    example: "It was warm inside the café.",
   },
 
   {
-    word: "torch",
-    meaning: "portable light",
-    example: "Take a torch camping.",
+    word: "fail",
+    meaning: "not succeed",
+    example: "He failed the exam.",
   },
 
   {
-    word: "tent",
-    meaning: "camping shelter",
-    example: "We slept in a tent.",
+    word: "swot",
+    meaning: "study very hard",
+    example: "She swotted all night before the test.",
   },
 
   {
-    word: "charge",
-    meaning: "put energy into a device",
-    example: "I need to charge my phone.",
+    word: "despite",
+    meaning: "without being affected by something",
+    example: "Despite the rain, we went out.",
   },
 
   {
-    word: "insect",
-    meaning: "small six-legged animal",
-    example: "An insect flew inside.",
+    word: "suddenly",
+    meaning: "quickly and unexpectedly",
+    example: "Suddenly, the lights went off.",
+  },
+
+  {
+    word: "softly",
+    meaning: "quietly and gently",
+    example: "She spoke softly.",
   },
 ];
 
-const correctAnswers = {
-  q1: "feed",
-  q2: "support",
-  q3: "award",
-  q4: "give up",
-  q5: "achievement",
-  q6: "protect",
-  q7: "cheap",
-  q8: "torch",
-  q9: "tent",
-  q10: "charge",
-};
+const vocabularyQuiz = [
+  {
+    id: 1,
+    question: "What is the ___ these two phones?",
+    answer: "difference between",
+  },
 
-const grammarAnswers = {
+  {
+    id: 2,
+    question: "His ___ school is very positive.",
+    answer: "attitude to",
+  },
+
+  {
+    id: 3,
+    question: "Students now have better ___ education.",
+    answer: "access to",
+  },
+
+  {
+    id: 4,
+    question: "There has been an ___ food prices.",
+    answer: "increase in",
+  },
+
+  {
+    id: 5,
+    question: "Cycling is a healthy ___ driving.",
+    answer: "alternative to",
+  },
+
+  {
+    id: 6,
+    question: "I learned the speech ___.",
+    answer: "by heart",
+  },
+
+  {
+    id: 7,
+    question: "Although it was cold outside, the room felt ___.",
+    answer: "warm",
+  },
+
+  {
+    id: 8,
+    question: "If you don’t study, you might ___.",
+    answer: "fail",
+  },
+
+  {
+    id: 9,
+    question: "She had to ___ before the final exam.",
+    answer: "swot",
+  },
+
+  {
+    id: 10,
+    question: "___ being tired, he finished the project.",
+    answer: "despite",
+  },
+
+  {
+    id: 11,
+    question: "The dog barked ___ in the middle of the night.",
+    answer: "suddenly",
+  },
+
+  {
+    id: 12,
+    question: "She closed the door ___ so nobody woke up.",
+    answer: "softly",
+  },
+];
+
+const passiveAnswers = {
   g1: "has been finished",
-  g2: "have been given",
-  g3: "has been solved",
-  g4: "has been organized",
-  g5: "have been supported",
+  g2: "has been built",
+  g3: "have been invited",
+  g4: "has been cleaned",
+  g5: "have been sent",
 };
 
-function VocabularyLesson() {
+const lendBorrowAnswers = {
+  l1: "lend",
+  l2: "borrow",
+  l3: "lend",
+  l4: "borrow",
+  l5: "lend",
+};
+
+function B1Lesson() {
   const [answers, setAnswers] = useState({});
+
   const [score, setScore] = useState(null);
 
   const [grammar, setGrammar] = useState({});
+
   const [grammarScore, setGrammarScore] = useState(null);
 
-  const handleChange = (q, value) => {
+  const [lendBorrow, setLendBorrow] = useState({});
+
+  const [lendBorrowScore, setLendBorrowScore] = useState(null);
+
+  const handleChange = (id, value) => {
     setAnswers((prev) => ({
       ...prev,
-      [q]: value,
+      [id]: value,
     }));
   };
 
-  const handleGrammar = (q, value) => {
+  const handleGrammar = (id, value) => {
     setGrammar((prev) => ({
       ...prev,
-      [q]: value,
+      [id]: value,
+    }));
+  };
+
+  const handleLendBorrow = (id, value) => {
+    setLendBorrow((prev) => ({
+      ...prev,
+      [id]: value,
     }));
   };
 
   const checkAnswers = () => {
     let points = 0;
 
-    Object.keys(correctAnswers).forEach((key) => {
-      if (answers[key] === correctAnswers[key]) {
+    vocabularyQuiz.forEach((item) => {
+      if (answers[item.id]?.toLowerCase().trim() === item.answer) {
         points++;
       }
     });
@@ -126,8 +214,8 @@ function VocabularyLesson() {
   const checkGrammar = () => {
     let points = 0;
 
-    Object.keys(grammarAnswers).forEach((key) => {
-      if (grammar[key]?.toLowerCase().trim() === grammarAnswers[key]) {
+    Object.keys(passiveAnswers).forEach((key) => {
+      if (grammar[key]?.toLowerCase().trim() === passiveAnswers[key]) {
         points++;
       }
     });
@@ -135,28 +223,40 @@ function VocabularyLesson() {
     setGrammarScore(points);
   };
 
+  const checkLendBorrow = () => {
+    let points = 0;
+
+    Object.keys(lendBorrowAnswers).forEach((key) => {
+      if (lendBorrow[key] === lendBorrowAnswers[key]) {
+        points++;
+      }
+    });
+
+    setLendBorrowScore(points);
+  };
+
   return (
     <main className="page">
       {/* HERO */}
 
       <section className="hero">
-        <p className="subtitle">Vocabulary + Grammar</p>
+        <p className="subtitle">B1 English Lesson</p>
 
-        <h1>English Practice Lesson 🌿</h1>
+        <h1>Vocabulary + Grammar 📚</h1>
 
         <p className="description">
-          Learn useful vocabulary and practise grammar with interactive
-          exercises.
+          Practise useful B1 vocabulary, Present Perfect Passive and the
+          difference between lend and borrow.
         </p>
       </section>
 
       {/* VOCABULARY */}
 
       <section className="lesson">
-        <h2>📚 Vocabulary Box</h2>
+        <h2>📖 Vocabulary Box</h2>
 
         <div className="grid">
-          {words.map((item) => (
+          {vocabulary.map((item) => (
             <div className="card" key={item.word}>
               <h3>{item.word}</h3>
 
@@ -168,231 +268,236 @@ function VocabularyLesson() {
         </div>
       </section>
 
-      {/* EXERCISE 1 */}
+      {/* READING */}
 
       <section className="lesson">
-        <h2>✏️ Exercise 1 — Choose the correct word</h2>
+        <h2>📚 Reading</h2>
 
         <div className="exercise-card">
-          <p>1. Please ___ the dog before you leave.</p>
-
-          <select onChange={(e) => handleChange("q1", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="feed">feed</option>
-
-            <option value="charge">charge</option>
-
-            <option value="protect">protect</option>
-          </select>
-
-          <p>2. My parents always ___ me when I feel sad.</p>
-
-          <select onChange={(e) => handleChange("q2", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="support">support</option>
-
-            <option value="charge">charge</option>
-
-            <option value="protect">protect</option>
-          </select>
-
-          <p>3. She won an ___ for her art project.</p>
-
-          <select onChange={(e) => handleChange("q3", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="award">award</option>
-
-            <option value="torch">torch</option>
-
-            <option value="tent">tent</option>
-          </select>
-
-          <p>4. Never ___ your dreams.</p>
-
-          <select onChange={(e) => handleChange("q4", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="give up">give up</option>
-
-            <option value="support">support</option>
-
-            <option value="feed">feed</option>
-          </select>
-
-          <p>5. Passing the exam was a big ___.</p>
-
-          <select onChange={(e) => handleChange("q5", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="achievement">achievement</option>
-
-            <option value="insect">insect</option>
-
-            <option value="torch">torch</option>
-          </select>
-
-          <p>6. Sunglasses help ___ your eyes from the sun.</p>
-
-          <select onChange={(e) => handleChange("q6", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="protect">protect</option>
-
-            <option value="charge">charge</option>
-
-            <option value="feed">feed</option>
-          </select>
-
-          <p>7. This backpack was very ___.</p>
-
-          <select onChange={(e) => handleChange("q7", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="cheap">cheap</option>
-
-            <option value="award">award</option>
-
-            <option value="support">support</option>
-          </select>
-
-          <p>8. We used a ___ while camping at night.</p>
-
-          <select onChange={(e) => handleChange("q8", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="torch">torch</option>
-
-            <option value="tent">tent</option>
-
-            <option value="insect">insect</option>
-          </select>
-
-          <p>9. We slept in a ___ near the lake.</p>
-
-          <select onChange={(e) => handleChange("q9", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="tent">tent</option>
-
-            <option value="torch">torch</option>
-
-            <option value="charge">charge</option>
-          </select>
-
-          <p>10. I need to ___ my phone.</p>
-
-          <select onChange={(e) => handleChange("q10", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="charge">charge</option>
-
-            <option value="protect">protect</option>
-
-            <option value="feed">feed</option>
-          </select>
-
-          <button onClick={checkAnswers}>Check answers</button>
-
-          {score !== null && (
-            <p className="score">You got {score} / 10 correct 🎯</p>
-          )}
-        </div>
-      </section>
-
-      <section className="lesson">
-        <h2>📖 Reading</h2>
-
-        <div className="exercise-card">
-          <h3>A Weekend in the Mountains</h3>
+          <h3>Preparing for Exams</h3>
 
           <p>
-            Last weekend, my friends and I decided to go camping in the
-            mountains. We wanted a cheap holiday away from the busy city, so we
-            packed our bags and left early in the morning. When we arrived, we
-            put up our tent near a river and prepared dinner outside.
+            Many students have a different attitude to exams. Some people swot
+            for hours every day, while others prefer a more relaxed approach.
+            Recently, there has been an increase in online learning, which gives
+            students easier access to information and study materials.
           </p>
 
           <p>
-            During the evening, it became very dark, so we used torches to walk
-            around the campsite. Unfortunately, there were many insects near the
-            water, so we used special spray to protect ourselves. Luckily, I had
-            also remembered to charge my phone before the trip, which was useful
-            when we needed a map.
+            Despite the pressure, students should remember that failing one exam
+            is not the end of the world. Suddenly, unexpected situations can
+            happen during a test, but staying calm is important. Teachers often
+            speak softly to help nervous students feel warm and comfortable.
           </p>
 
           <p>
-            Although the weather was cold at night, the experience was amazing.
-            Camping helped us relax and spend more time in nature.
+            Some students learn whole texts by heart, while others look for
+            alternative ways to remember information.
           </p>
         </div>
       </section>
 
-      {/* READING QUESTIONS */}
+      {/* QUESTIONS */}
 
       <section className="lesson">
         <h2>💬 Reading Questions</h2>
 
         <div className="exercise-card">
-          <p>1. Why did they choose camping?</p>
+          <p>1. What has increased recently?</p>
 
-          <p>2. Where did they put up the tent?</p>
+          <p>2. Why do teachers speak softly?</p>
 
-          <p>3. Why did they use torches?</p>
+          <p>3. What do some students learn by heart?</p>
 
-          <p>4. What problem did they have near the river?</p>
+          <p>4. What can happen suddenly during exams?</p>
 
-          <p>5. Why was the phone useful?</p>
+          <p>5. How do students prepare for exams differently?</p>
         </div>
       </section>
 
-      {/* GRAMMAR */}
+      {/* VOCABULARY EXERCISE */}
 
       <section className="lesson">
-        <h2>🧠 Grammar — Present Perfect Passive</h2>
+        <h2>✏️ Complete the Sentences</h2>
 
         <div className="exercise-card">
-          <p>1. The work __________ (finish).</p>
+          {vocabularyQuiz.map((item) => (
+            <div key={item.id}>
+              <p>
+                {item.id}. {item.question}
+              </p>
+
+              <input
+                type="text"
+                placeholder="Your answer..."
+                onChange={(e) => handleChange(item.id, e.target.value)}
+              />
+            </div>
+          ))}
+
+          <button onClick={checkAnswers}>Check Answers</button>
+
+          {score !== null && (
+            <p className="score">You got {score} / 12 correct 🎯</p>
+          )}
+        </div>
+      </section>
+
+      {/* PRESENT PERFECT PASSIVE */}
+
+      <section className="lesson">
+        <h2>🧠 Present Perfect Passive</h2>
+
+        <div className="exercise-card">
+          <table className="grammar-table">
+            <thead>
+              <tr>
+                <th>Structure</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>have/has been + V3</td>
+
+                <td>The work has been finished.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br />
+
+          <p>
+            We use the Present Perfect Passive when the action is more important
+            than the person who did it.
+          </p>
+
+          <p>Example:</p>
+
+          <p>The invitations have been sent.</p>
+        </div>
+      </section>
+
+      {/* GRAMMAR EXERCISE */}
+
+      <section className="lesson">
+        <h2>✍️ Present Perfect Passive Practice</h2>
+
+        <div className="exercise-card">
+          <p>1. The project __________ (finish).</p>
 
           <input
             type="text"
             onChange={(e) => handleGrammar("g1", e.target.value)}
           />
 
-          <p>2. The awards __________ (give).</p>
+          <p>2. A new school __________ (build).</p>
 
           <input
             type="text"
             onChange={(e) => handleGrammar("g2", e.target.value)}
           />
 
-          <p>3. The problem __________ (solve).</p>
+          <p>3. All the guests __________ (invite).</p>
 
           <input
             type="text"
             onChange={(e) => handleGrammar("g3", e.target.value)}
           />
 
-          <p>4. The event __________ (organize).</p>
+          <p>4. The room __________ (clean).</p>
 
           <input
             type="text"
             onChange={(e) => handleGrammar("g4", e.target.value)}
           />
 
-          <p>5. The students __________ (support).</p>
+          <p>5. The emails __________ (send).</p>
 
           <input
             type="text"
             onChange={(e) => handleGrammar("g5", e.target.value)}
           />
 
-          <button onClick={checkGrammar}>Check grammar</button>
+          <button onClick={checkGrammar}>Check Grammar</button>
 
           {grammarScore !== null && (
             <p className="score">You got {grammarScore} / 5 correct ✨</p>
+          )}
+        </div>
+      </section>
+
+      {/* LEND / BORROW */}
+
+      <section className="lesson">
+        <h2>🔄 Lend vs Borrow</h2>
+
+        <div className="exercise-card">
+          <p>
+            <b>Lend</b> = give something to someone temporarily.
+          </p>
+
+          <p>
+            <b>Borrow</b> = take something from someone temporarily.
+          </p>
+
+          <hr />
+
+          <p>1. Can you ___ me your pen?</p>
+
+          <select onChange={(e) => handleLendBorrow("l1", e.target.value)}>
+            <option value="">Choose</option>
+
+            <option value="lend">lend</option>
+
+            <option value="borrow">borrow</option>
+          </select>
+
+          <p>2. I need to ___ some money from my friend.</p>
+
+          <select onChange={(e) => handleLendBorrow("l2", e.target.value)}>
+            <option value="">Choose</option>
+
+            <option value="lend">lend</option>
+
+            <option value="borrow">borrow</option>
+          </select>
+
+          <p>3. Could you ___ me your notes?</p>
+
+          <select onChange={(e) => handleLendBorrow("l3", e.target.value)}>
+            <option value="">Choose</option>
+
+            <option value="lend">lend</option>
+
+            <option value="borrow">borrow</option>
+          </select>
+
+          <p>4. She asked if she could ___ my laptop.</p>
+
+          <select onChange={(e) => handleLendBorrow("l4", e.target.value)}>
+            <option value="">Choose</option>
+
+            <option value="lend">lend</option>
+
+            <option value="borrow">borrow</option>
+          </select>
+
+          <p>5. I never ___ expensive things to strangers.</p>
+
+          <select onChange={(e) => handleLendBorrow("l5", e.target.value)}>
+            <option value="">Choose</option>
+
+            <option value="lend">lend</option>
+
+            <option value="borrow">borrow</option>
+          </select>
+
+          <button onClick={checkLendBorrow}>Check Answers</button>
+
+          {lendBorrowScore !== null && (
+            <p className="score">You got {lendBorrowScore} / 5 correct 🎯</p>
           )}
         </div>
       </section>
@@ -403,19 +508,19 @@ function VocabularyLesson() {
         <h2>🗣 Speaking Practice</h2>
 
         <div className="exercise-card">
-          <p>1. Have you ever slept in a tent?</p>
+          <p>1. What is your attitude to exams?</p>
 
-          <p>2. What do you usually take camping?</p>
+          <p>2. Have you ever failed an important test?</p>
 
-          <p>3. How do you protect yourself from insects?</p>
+          <p>3. Do you usually learn things by heart?</p>
 
-          <p>4. Do you prefer cheap or expensive holidays?</p>
+          <p>4. What is a good alternative to studying late at night?</p>
 
-          <p>5. What achievements are you proud of?</p>
+          <p>5. Have you ever borrowed something valuable?</p>
         </div>
       </section>
     </main>
   );
 }
 
-export default VocabularyLesson;
+export default B1Lesson;
