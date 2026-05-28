@@ -49,6 +49,9 @@ function Home() {
           <Link to="/inorderto">
             <button>Purpose Clauses щоб</button>
           </Link>
+          <Link to="/nastyalesson">
+            <button>FindingYourVoiceLesson</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>

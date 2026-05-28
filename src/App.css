@@ -182,3 +182,33 @@
     border-right-color: var(--border);
   }
 }
+
+.drag-words {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.drag-word {
+  background: #111827;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 14px;
+  cursor: grab;
+  transition: 0.3s;
+}
+
+.drag-word:hover {
+  transform: scale(1.05);
+}
+
+.drop-zone {
+  min-height: 50px;
+  border: 2px dashed #9ca3af;
+  border-radius: 14px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}

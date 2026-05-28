@@ -15,6 +15,7 @@ import PartsOfSpeechLesson from "./pages/PartsOfSpeech";
 import ObligationLesson from "./pages/ObligationLesson";
 import ThereIsThereAreLesson from "./pages/Thereisare";
 import PurposeLesson from "./pages/InOrderTo";
+import BeyondTalentLesson from "./pages/NastyaLesson";
 import About from "./pages/About";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/obligationlesson" element={<ObligationLesson />} />
         <Route path="/thereisare" element={<ThereIsThereAreLesson />} />
         <Route path="/inorderto" element={<PurposeLesson />} />
+        <Route path="/nastyalesson" element={<BeyondTalentLesson />} />
       </Routes>
     </BrowserRouter>
   );
