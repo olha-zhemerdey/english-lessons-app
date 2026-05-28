@@ -268,6 +268,84 @@ function B1Lesson() {
         </div>
       </section>
 
+      {/* MATCHING VOCABULARY */}
+
+      <section className="lesson">
+        <h2>🎯 Match the Expressions</h2>
+
+        <div className="exercise-card">
+          <p>Match the expressions with their meanings.</p>
+
+          <table className="grammar-table">
+            <thead>
+              <tr>
+                <th>Expression</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1. difference between</td>
+                <td>a. learn something from memory</td>
+              </tr>
+
+              <tr>
+                <td>2. by heart</td>
+                <td>b. not succeed</td>
+              </tr>
+
+              <tr>
+                <td>3. fail</td>
+                <td>c. another option</td>
+              </tr>
+
+              <tr>
+                <td>4. alternative to</td>
+                <td>d. how two things are different</td>
+              </tr>
+
+              <tr>
+                <td>5. access to</td>
+                <td>e. opportunity to use something</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br />
+
+          <p>Write your answers like:</p>
+
+          <p>1 - d</p>
+
+          <p>2 - a</p>
+
+          <hr />
+
+          <h3>✍️ Your Answers</h3>
+
+          <p>1.</p>
+
+          <input type="text" />
+
+          <p>2.</p>
+
+          <input type="text" />
+
+          <p>3.</p>
+
+          <input type="text" />
+
+          <p>4.</p>
+
+          <input type="text" />
+
+          <p>5.</p>
+
+          <input type="text" />
+        </div>
+      </section>
+
       {/* READING */}
 
       <section className="lesson">
