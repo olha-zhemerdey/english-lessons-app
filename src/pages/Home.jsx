@@ -16,8 +16,8 @@ function Home() {
           <Link to="/lesson1">
             <button>Lesson 1</button>
           </Link>
-          <Link to="/lesson2">
-            <button>Lesson 2</button>
+          <Link to="/germantravellesson">
+            <button>GermanTravelLesson</button>
           </Link>
           <Link to="/lesson3">
             <button>Lesson 3</button>
