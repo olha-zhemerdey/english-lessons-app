@@ -221,3 +221,74 @@
   border: 1px solid #d1d5db;
   font-size: 16px;
 }
+
+.memory-grid {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.memory-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.memory-card {
+  background: white;
+  border: 2px solid #dbe4ff;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.memory-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.answer-table {
+  width: 280px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.answer-table th {
+  background: #8b5cf6;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.answer-table td {
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+  text-align: center;
+}
+
+.answer-table tr:last-child td {
+  border-bottom: none;
+}
+
+.answer-table input {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  outline: none;
+}
+
+.answer-table input:focus {
+  border-color: #8b5cf6;
+}

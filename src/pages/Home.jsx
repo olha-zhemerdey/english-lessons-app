@@ -55,6 +55,9 @@ function Home() {
           <Link to="/run">
             <button>RunPhrasalVerbsLesson</button>
           </Link>
+          <Link to="/nastyavocfilm">
+            <button>AdvancedMovieVocabularyLesson</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>
