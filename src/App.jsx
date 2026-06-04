@@ -18,6 +18,7 @@ import PurposeLesson from "./pages/InOrderTo";
 import BeyondTalentLesson from "./pages/NastyaLesson";
 import RunPhrasalVerbsLesson from "./pages/Run";
 import AdvancedMovieVocabularyLesson from "./pages/NastyaVocFilm";
+import NMTVocabularyLesson from "./pages/NmtOne";
 import About from "./pages/About";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path="/inorderto" element={<PurposeLesson />} />
         <Route path="/nastyalesson" element={<BeyondTalentLesson />} />
         <Route path="/run" element={<RunPhrasalVerbsLesson />} />
+        <Route path="/nmtone" element={<NMTVocabularyLesson />} />
         <Route
           path="/nastyavocfilm"
           element={<AdvancedMovieVocabularyLesson />}
