@@ -61,6 +61,9 @@ function Home() {
           <Link to="/nmtone">
             <button>NMTVocabularyLesson</button>
           </Link>
+          <Link to="/anynosome">
+            <button>AnySomeNo</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>

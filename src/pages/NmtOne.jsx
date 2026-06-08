@@ -336,6 +336,64 @@ Extra option: F*/}
           </table>
         </div>
       </section>
+
+      {/* SPEAKING */}
+
+      <section className="lesson">
+        <h2>🗣 Speaking Practice</h2>
+
+        <div className="exercise-card">
+          <h3>Continue the phrases using your own ideas.</h3>
+
+          <br />
+
+          <p>1. Teenagers often feel stressed when adults...</p>
+
+          <div className="answer-box">
+            → __________________________________________
+          </div>
+
+          <br />
+
+          <p>2. A good teacher should always speak softly because...</p>
+
+          <div className="answer-box">
+            → __________________________________________
+          </div>
+
+          <br />
+
+          <p>3. Recently, many young people have started...</p>
+
+          <div className="answer-box">
+            → __________________________________________
+          </div>
+
+          <br />
+
+          <p>4. The best approach to solving conflicts is...</p>
+
+          <div className="answer-box">
+            → __________________________________________
+          </div>
+
+          <br />
+
+          <p>5. Parents should not put pressure on children if...</p>
+
+          <div className="answer-box">
+            → __________________________________________
+          </div>
+
+          <br />
+
+          <p>6. Most students expect teachers to...</p>
+
+          <div className="answer-box">
+            → __________________________________________
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

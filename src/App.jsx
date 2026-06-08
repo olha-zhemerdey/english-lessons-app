@@ -20,6 +20,7 @@ import RunPhrasalVerbsLesson from "./pages/Run";
 import AdvancedMovieVocabularyLesson from "./pages/NastyaVocFilm";
 import NMTVocabularyLesson from "./pages/NmtOne";
 import About from "./pages/About";
+import VocabularyLesson from "./pages/AnyNoSome";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/nastyalesson" element={<BeyondTalentLesson />} />
         <Route path="/run" element={<RunPhrasalVerbsLesson />} />
         <Route path="/nmtone" element={<NMTVocabularyLesson />} />
+        <Route path="/anynosome" element={<VocabularyLesson />} />
         <Route
           path="/nastyavocfilm"
           element={<AdvancedMovieVocabularyLesson />}
