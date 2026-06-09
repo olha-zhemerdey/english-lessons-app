@@ -64,6 +64,9 @@ function Home() {
           <Link to="/anynosome">
             <button>AnySomeNo</button>
           </Link>
+          <Link to="/capsules">
+            <button>TimeCapsuleLesson</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>
