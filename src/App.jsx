@@ -22,6 +22,7 @@ import NMTVocabularyLesson from "./pages/NmtOne";
 import About from "./pages/About";
 import VocabularyLesson from "./pages/AnyNoSome";
 import TimeCapsuleLesson from "./pages/Capsules";
+import FutureSelfLesson from "./pages/LetterToMe";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="/nmtone" element={<NMTVocabularyLesson />} />
         <Route path="/anynosome" element={<VocabularyLesson />} />
         <Route path="/capsules" element={<TimeCapsuleLesson />} />
+        <Route path="/lettertome" element={<FutureSelfLesson />} />
         <Route
           path="/nastyavocfilm"
           element={<AdvancedMovieVocabularyLesson />}
