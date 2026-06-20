@@ -70,6 +70,9 @@ function Home() {
           <Link to="/lettertome">
             <button>FutureSelfLesson</button>
           </Link>
+          <Link to="/diagramvoc">
+            <button>DiagramVocabulary</button>
+          </Link>
 
           <Link to="/about">
             <button className="secondary-btn">About Me</button>

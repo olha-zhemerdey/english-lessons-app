@@ -1,256 +1,244 @@
 import "../index.css";
 import { useState } from "react";
 
-const grammarWords = [
-  "There is",
-  "There are",
-  "There isn't",
-  "There aren't",
-  "Is there?",
-  "Are there?",
-];
-
-const quiz = [
+const trueFalseQuestions = [
   {
     id: 1,
-    question: "________ a beautiful park near my house.",
-    answer: "There is",
+    question: "The student is currently studying at university.",
+    answer: "False",
   },
-
   {
     id: 2,
-    question: "________ many restaurants in the city centre.",
-    answer: "There are",
+    question: "She would ideally like to work in Mumbai.",
+    answer: "True",
   },
-
   {
     id: 3,
-    question: "________ any milk in the fridge.",
-    answer: "There isn't",
+    question: "As a child, she always wanted to be a lawyer.",
+    answer: "False",
   },
-
   {
     id: 4,
-    question: "________ enough chairs for everyone?",
-    answer: "Are there",
+    question: "The Secret Garden helped her develop a love for reading.",
+    answer: "True",
   },
-
   {
     id: 5,
-    question: "________ a cinema near here?",
-    answer: "Is there",
+    question: "She enjoys reading literary works.",
+    answer: "False",
   },
+];
 
+const gapFillQuestions = [
   {
-    id: 6,
-    question: "________ any good cafés in this area.",
-    answer: "There aren't",
+    id: 1,
+    text: "The student is currently ________ work.",
+    answer: "finding",
   },
+  {
+    id: 2,
+    text: "In ten years, she hopes to work in ________ and education.",
+    answer: "philanthropy",
+  },
+  {
+    id: 3,
+    text: "The book that started her love for reading was ________.",
+    answer: "The Secret Garden",
+  },
+  {
+    id: 4,
+    text: "She prefers fiction and ________ books.",
+    answer: "self-help",
+  },
+  {
+    id: 5,
+    text: "She recommends the book because people who are into fiction and ________ would enjoy it.",
+    answer: "music",
+  },
+];
+
+const matchingQuestions = [
+  {
+    id: 1,
+    phrase: "in between things",
+    answer: "To be in a transition period.",
+  },
+  {
+    id: 2,
+    phrase: "adverse effects",
+    answer: "Negative consequences.",
+  },
+  {
+    id: 3,
+    phrase: "carve out time",
+    answer: "To make time for something intentionally.",
+  },
+  {
+    id: 4,
+    phrase: "fall into a rut",
+    answer: "To become stuck in a boring routine.",
+  },
+];
+
+const matchingOptions = [
+  "To be in a transition period.",
+  "Negative consequences.",
+  "To make time for something intentionally.",
+  "To become stuck in a boring routine.",
 ];
 
 function ThereIsThereAreLesson() {
-  const [answers, setAnswers] = useState({});
-  const [score, setScore] = useState(null);
+  const [tfAnswers, setTfAnswers] = useState({});
+  const [gapAnswers, setGapAnswers] = useState({});
+  const [matchAnswers, setMatchAnswers] = useState({});
 
-  const handleChange = (id, value) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
-  };
+  const [tfScore, setTfScore] = useState(null);
+  const [gapScore, setGapScore] = useState(null);
+  const [matchScore, setMatchScore] = useState(null);
 
-  const checkAnswers = () => {
-    let points = 0;
+  const checkTF = () => {
+    let score = 0;
 
-    quiz.forEach((item) => {
-      if (answers[item.id] === item.answer) {
-        points++;
+    trueFalseQuestions.forEach((q) => {
+      if (tfAnswers[q.id] === q.answer) {
+        score++;
       }
     });
 
-    setScore(points);
+    setTfScore(score);
+  };
+
+  const checkGapFill = () => {
+    let score = 0;
+
+    gapFillQuestions.forEach((q) => {
+      if (gapAnswers[q.id]?.trim().toLowerCase() === q.answer.toLowerCase()) {
+        score++;
+      }
+    });
+
+    setGapScore(score);
+  };
+
+  const checkMatching = () => {
+    let score = 0;
+
+    matchingQuestions.forEach((q) => {
+      if (matchAnswers[q.id] === q.answer) {
+        score++;
+      }
+    });
+
+    setMatchScore(score);
   };
 
   return (
     <main className="page">
-      {/* HERO */}
-
-      <section className="hero">
-        <p className="subtitle">English Grammar • B1 Level</p>
-
-        <h1>There is / There are 🌍</h1>
-
-        <p className="description">
-          Learn how to describe places, objects and situations using there is
-          and there are.
-        </p>
-      </section>
-
-      {/* VOCABULARY */}
+      {/* TRUE FALSE */}
 
       <section className="lesson">
-        <h2>📚 Grammar Forms</h2>
+        <h2>✅ True or False?</h2>
 
-        <div className="grid">
-          {grammarWords.map((word) => (
-            <div className="card" key={word}>
-              <h3>{word}</h3>
+        <div className="exercise-card">
+          {trueFalseQuestions.map((q) => (
+            <div key={q.id}>
+              <p>{q.question}</p>
+
+              <select
+                onChange={(e) =>
+                  setTfAnswers((prev) => ({
+                    ...prev,
+                    [q.id]: e.target.value,
+                  }))
+                }
+              >
+                <option value="">Choose</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+              </select>
             </div>
           ))}
+
+          <button onClick={checkTF}>Check Answers</button>
+
+          {tfScore !== null && (
+            <p className="score">
+              You got {tfScore} / {trueFalseQuestions.length}
+            </p>
+          )}
         </div>
       </section>
 
-      {/* TABLE */}
+      {/* GAP FILL */}
 
       <section className="lesson">
-        <h2>📋 Grammar Table</h2>
+        <h2>✏️ Complete the Sentences</h2>
 
         <div className="exercise-card">
-          <table className="grammar-table">
-            <thead>
-              <tr>
-                <th>Form</th>
-                <th>Use</th>
-                <th>Example</th>
-              </tr>
-            </thead>
+          {gapFillQuestions.map((q) => (
+            <div key={q.id}>
+              <p>{q.text}</p>
 
-            <tbody>
-              <tr>
-                <td>There is</td>
-                <td>singular noun</td>
-                <td>There is a library near my school.</td>
-              </tr>
+              <input
+                type="text"
+                onChange={(e) =>
+                  setGapAnswers((prev) => ({
+                    ...prev,
+                    [q.id]: e.target.value,
+                  }))
+                }
+              />
+            </div>
+          ))}
 
-              <tr>
-                <td>There are</td>
-                <td>plural noun</td>
-                <td>There are many students in the classroom.</td>
-              </tr>
+          <button onClick={checkGapFill}>Check Answers</button>
 
-              <tr>
-                <td>There isn't</td>
-                <td>negative singular</td>
-                <td>There isn't a bank here.</td>
-              </tr>
-
-              <tr>
-                <td>There aren't</td>
-                <td>negative plural</td>
-                <td>There aren't any shops nearby.</td>
-              </tr>
-
-              <tr>
-                <td>Is there?</td>
-                <td>question singular</td>
-                <td>Is there a pharmacy near here?</td>
-              </tr>
-
-              <tr>
-                <td>Are there?</td>
-                <td>question plural</td>
-                <td>Are there any parks in your town?</td>
-              </tr>
-            </tbody>
-          </table>
+          {gapScore !== null && (
+            <p className="score">
+              You got {gapScore} / {gapFillQuestions.length}
+            </p>
+          )}
         </div>
       </section>
 
-      {/* EXPLANATION */}
+      {/* MATCHING */}
 
       <section className="lesson">
-        <h2>🧠 Quick Explanation</h2>
+        <h2>🔗 Match the Phrase to its Meaning</h2>
 
         <div className="exercise-card">
-          <p>
-            <b>There is</b> is used with singular nouns.
-          </p>
-
-          <p>
-            <b>There are</b> is used with plural nouns.
-          </p>
-
-          <p>
-            We use <b>any</b> in negatives and questions.
-          </p>
-
-          <p>
-            We often use this grammar to describe places, towns, rooms and
-            cities.
-          </p>
-        </div>
-      </section>
-
-      {/* EXERCISE 1 */}
-
-      <section className="lesson">
-        <h2>✏️ Choose the correct answer</h2>
-
-        <div className="exercise-card">
-          {quiz.map((item) => (
-            <div key={item.id}>
+          {matchingQuestions.map((q) => (
+            <div key={q.id}>
               <p>
-                {item.id}. {item.question}
+                <strong>{q.phrase}</strong>
               </p>
 
-              <select onChange={(e) => handleChange(item.id, e.target.value)}>
+              <select
+                onChange={(e) =>
+                  setMatchAnswers((prev) => ({
+                    ...prev,
+                    [q.id]: e.target.value,
+                  }))
+                }
+              >
                 <option value="">Choose</option>
 
-                {grammarWords.map((word) => (
-                  <option key={word} value={word}>
-                    {word}
+                {matchingOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
                   </option>
                 ))}
               </select>
             </div>
           ))}
 
-          <button onClick={checkAnswers}>Check answers</button>
+          <button onClick={checkMatching}>Check Answers</button>
 
-          {score !== null && (
+          {matchScore !== null && (
             <p className="score">
-              You got {score} / {quiz.length} correct 🎯
+              You got {matchScore} / {matchingQuestions.length}
             </p>
           )}
-        </div>
-      </section>
-
-      {/* EXERCISE 2 */}
-
-      <section className="lesson">
-        <h2>🏙 Describe the Picture</h2>
-
-        <div className="exercise-card">
-          <p>Imagine a modern city. Write sentences using:</p>
-
-          <ul>
-            <li>There is...</li>
-            <li>There are...</li>
-            <li>There isn't...</li>
-            <li>There aren't...</li>
-          </ul>
-
-          <p>Example:</p>
-
-          <p>There are many tall buildings in the city centre.</p>
-        </div>
-      </section>
-
-      {/* EXERCISE 3 */}
-
-      <section className="lesson">
-        <h2>🎯 Find the Mistake</h2>
-
-        <div className="exercise-card">
-          <p>1. There is many cars on the street.</p>
-
-          <p>2. There are a big supermarket near my house.</p>
-
-          <p>3. Is there any restaurants in your town?</p>
-
-          <p>4. There isn't any students in the classroom.</p>
-
-          <p>5. There are a beautiful park in my city.</p>
         </div>
       </section>
 
@@ -260,34 +248,13 @@ function ThereIsThereAreLesson() {
         <h2>🗣 Speaking Practice</h2>
 
         <div className="exercise-card">
-          <p>1. Is there a good café near your home?</p>
-
-          <p>2. Are there many parks in your city?</p>
-
-          <p>3. Is there anything you would like to change in your town?</p>
-
-          <p>4. Are there enough places for children in your area?</p>
-
-          <p>5. What is there in your dream house?</p>
-        </div>
-      </section>
-
-      {/* WRITING */}
-
-      <section className="lesson">
-        <h2>✍️ Writing Task</h2>
-
-        <div className="exercise-card">
-          <p>Write a short description of your town or neighbourhood using:</p>
-
-          <ul>
-            <li>There is</li>
-            <li>There are</li>
-            <li>There isn't</li>
-            <li>There aren't</li>
-          </ul>
-
-          <p>Write 6–8 sentences.</p>
+          <p>1. What kind of books are you into?</p>
+          <p>2. Do you have phases in your life with different hobbies?</p>
+          <p>
+            3. What adverse effects do you notice when you don't sleep enough?
+          </p>
+          <p>4. How do you carve out time for family and friends?</p>
+          <p>5. Do you think your weekends will change as you get older?</p>
         </div>
       </section>
     </main>

@@ -23,6 +23,7 @@ import About from "./pages/About";
 import VocabularyLesson from "./pages/AnyNoSome";
 import TimeCapsuleLesson from "./pages/Capsules";
 import FutureSelfLesson from "./pages/LetterToMe";
+import VocabularyGame from "./pages/DiagramVoc";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           path="/nastyavocfilm"
           element={<AdvancedMovieVocabularyLesson />}
         />
+        <Route path="/diagramvoc" element={<VocabularyGame />} />
       </Routes>
     </BrowserRouter>
   );
