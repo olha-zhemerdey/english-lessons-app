@@ -1,603 +1,233 @@
 import "../index.css";
 import { useState } from "react";
 
-const vocabulary = [
+const idioms = [
   {
-    word: "difference between",
-    meaning: "how two things are not the same",
-    example: "What is the difference between a laptop and a tablet?",
+    idiom: "like clockwork",
+    meaning: "something happens very regularly",
+    example: "Every morning, it's like clockwork – she wakes up at 6 a.m.",
   },
-
   {
-    word: "attitude to",
-    meaning: "the way you think or feel about something",
-    example: "Her attitude to learning is positive.",
+    idiom: "be on the fence",
+    meaning: "be unable to decide",
+    example: "I'm still on the fence about which university to apply to.",
   },
-
   {
-    word: "access to",
-    meaning: "the opportunity to use or get something",
-    example: "Students have access to online courses.",
+    idiom: "break a sweat",
+    meaning: "make a lot of effort",
+    example: "She passed the exam without breaking a sweat.",
   },
-
   {
-    word: "increase in",
-    meaning: "a rise in something",
-    example: "There has been an increase in prices.",
+    idiom: "hit it off",
+    meaning: "become friends quickly",
+    example: "We hit it off the moment we met.",
   },
-
   {
-    word: "alternative to",
-    meaning: "something different instead of another thing",
-    example: "Walking is an alternative to driving.",
+    idiom: "I'm on it",
+    meaning: "I'm already taking care of it",
+    example: "Don't worry about the report – I'm on it.",
   },
-
   {
-    word: "by heart",
-    meaning: "from memory",
-    example: "She knows the poem by heart.",
+    idiom: "pipe dream",
+    meaning: "an unrealistic idea",
+    example: "Owning a private island is just a pipe dream.",
   },
-
   {
-    word: "warm",
-    meaning: "slightly hot or comfortable",
-    example: "It was warm inside the café.",
+    idiom: "out of the blue",
+    meaning: "unexpectedly",
+    example: "She called me out of the blue.",
   },
-
   {
-    word: "fail",
-    meaning: "not succeed",
-    example: "He failed the exam.",
-  },
-
-  {
-    word: "swot",
-    meaning: "study very hard",
-    example: "She swotted all night before the test.",
-  },
-
-  {
-    word: "despite",
-    meaning: "without being affected by something",
-    example: "Despite the rain, we went out.",
-  },
-
-  {
-    word: "suddenly",
-    meaning: "quickly and unexpectedly",
-    example: "Suddenly, the lights went off.",
-  },
-
-  {
-    word: "softly",
-    meaning: "quietly and gently",
-    example: "She spoke softly.",
+    idiom: "whip up",
+    meaning: "prepare something quickly",
+    example: "I whipped up a quick lunch.",
   },
 ];
 
-const vocabularyQuiz = [
-  {
-    id: 1,
-    question: "What is the ___ these two phones?",
-    answer: "difference between",
-  },
-
-  {
-    id: 2,
-    question: "His ___ school is very positive.",
-    answer: "attitude to",
-  },
-
-  {
-    id: 3,
-    question: "Students now have better ___ education.",
-    answer: "access to",
-  },
-
-  {
-    id: 4,
-    question: "There has been an ___ food prices.",
-    answer: "increase in",
-  },
-
-  {
-    id: 5,
-    question: "Cycling is a healthy ___ driving.",
-    answer: "alternative to",
-  },
-
-  {
-    id: 6,
-    question: "I learned the speech ___.",
-    answer: "by heart",
-  },
-
-  {
-    id: 7,
-    question: "Although it was cold outside, the room felt ___.",
-    answer: "warm",
-  },
-
-  {
-    id: 8,
-    question: "If you don’t study, you might ___.",
-    answer: "fail",
-  },
-
-  {
-    id: 9,
-    question: "She had to ___ before the final exam.",
-    answer: "swot",
-  },
-
-  {
-    id: 10,
-    question: "___ being tired, he finished the project.",
-    answer: "despite",
-  },
-
-  {
-    id: 11,
-    question: "The dog barked ___ in the middle of the night.",
-    answer: "suddenly",
-  },
-
-  {
-    id: 12,
-    question: "She closed the door ___ so nobody woke up.",
-    answer: "softly",
-  },
-];
-
-const passiveAnswers = {
-  g1: "has been finished",
-  g2: "has been built",
-  g3: "have been invited",
-  g4: "has been cleaned",
-  g5: "have been sent",
+const answers = {
+  gap1: "clockwork",
+  gap2: "fence",
+  gap3: "blue",
+  mc1: "c",
+  mc2: "b",
+  match1: "d",
+  match2: "c",
+  match3: "a",
+  match4: "b",
+  trans1: "pipe dream",
+  trans2: "whipped up",
 };
 
-const lendBorrowAnswers = {
-  l1: "lend",
-  l2: "borrow",
-  l3: "lend",
-  l4: "borrow",
-  l5: "lend",
-};
-
-function B1Lesson() {
-  const [answers, setAnswers] = useState({});
-
+export function B1Lesson() {
+  const [user, setUser] = useState({});
   const [score, setScore] = useState(null);
 
-  const [grammar, setGrammar] = useState({});
-
-  const [grammarScore, setGrammarScore] = useState(null);
-
-  const [lendBorrow, setLendBorrow] = useState({});
-
-  const [lendBorrowScore, setLendBorrowScore] = useState(null);
-
-  const handleChange = (id, value) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
-  };
-
-  const handleGrammar = (id, value) => {
-    setGrammar((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
-  };
-
-  const handleLendBorrow = (id, value) => {
-    setLendBorrow((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const checkAnswers = () => {
-    let points = 0;
+    let total = 0;
 
-    vocabularyQuiz.forEach((item) => {
-      if (answers[item.id]?.toLowerCase().trim() === item.answer) {
-        points++;
+    Object.keys(answers).forEach((key) => {
+      if (
+        (user[key] || "").trim().toLowerCase() === answers[key].toLowerCase()
+      ) {
+        total++;
       }
     });
 
-    setScore(points);
-  };
-
-  const checkGrammar = () => {
-    let points = 0;
-
-    Object.keys(passiveAnswers).forEach((key) => {
-      if (grammar[key]?.toLowerCase().trim() === passiveAnswers[key]) {
-        points++;
-      }
-    });
-
-    setGrammarScore(points);
-  };
-
-  const checkLendBorrow = () => {
-    let points = 0;
-
-    Object.keys(lendBorrowAnswers).forEach((key) => {
-      if (lendBorrow[key] === lendBorrowAnswers[key]) {
-        points++;
-      }
-    });
-
-    setLendBorrowScore(points);
+    setScore(total);
   };
 
   return (
-    <main className="page">
-      {/* HERO */}
+    <div className="lesson">
+      <h1>🧠 B2 Idioms Lesson</h1>
 
-      <section className="hero">
-        <p className="subtitle">B1 English Lesson</p>
+      <h2>Useful Idioms</h2>
 
-        <h1>Vocabulary + Grammar 📚</h1>
-
-        <p className="description">
-          Practise useful B1 vocabulary, Present Perfect Passive and the
-          difference between lend and borrow.
-        </p>
-      </section>
-
-      {/* VOCABULARY */}
-
-      <section className="lesson">
-        <h2>📖 Vocabulary Box</h2>
-
-        <div className="grid">
-          {vocabulary.map((item) => (
-            <div className="card" key={item.word}>
-              <h3>{item.word}</h3>
-
-              <p>{item.meaning}</p>
-
-              <small>{item.example}</small>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* MATCHING VOCABULARY */}
-
-      <section className="lesson">
-        <h2>🎯 Match the Expressions</h2>
-
-        <div className="exercise-card">
-          <p>Match the expressions with their meanings.</p>
-
-          <table className="grammar-table">
-            <thead>
-              <tr>
-                <th>Expression</th>
-                <th>Meaning</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>1. difference between</td>
-                <td>a. learn something from memory</td>
-              </tr>
-
-              <tr>
-                <td>2. by heart</td>
-                <td>b. not succeed</td>
-              </tr>
-
-              <tr>
-                <td>3. fail</td>
-                <td>c. another option</td>
-              </tr>
-
-              <tr>
-                <td>4. alternative to</td>
-                <td>d. how two things are different</td>
-              </tr>
-
-              <tr>
-                <td>5. access to</td>
-                <td>e. opportunity to use something</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <br />
-
-          <p>Write your answers like:</p>
-
-          <p>1 - d</p>
-
-          <p>2 - a</p>
-
-          <hr />
-
-          <h3>✍️ Your Answers</h3>
-
-          <p>1.</p>
-
-          <input type="text" />
-
-          <p>2.</p>
-
-          <input type="text" />
-
-          <p>3.</p>
-
-          <input type="text" />
-
-          <p>4.</p>
-
-          <input type="text" />
-
-          <p>5.</p>
-
-          <input type="text" />
-        </div>
-      </section>
-
-      {/* READING */}
-
-      <section className="lesson">
-        <h2>📚 Reading</h2>
-
-        <div className="exercise-card">
-          <h3>Preparing for Exams</h3>
-
+      {idioms.map((item) => (
+        <div key={item.idiom} className="card">
+          <h3>{item.idiom}</h3>
+          <p>{item.meaning}</p>
           <p>
-            Many students have a different attitude to exams. Some people swot
-            for hours every day, while others prefer a more relaxed approach.
-            Recently, there has been an increase in online learning, which gives
-            students easier access to information and study materials.
-          </p>
-
-          <p>
-            Despite the pressure, students should remember that failing one exam
-            is not the end of the world. Suddenly, unexpected situations can
-            happen during a test, but staying calm is important. Teachers often
-            speak softly to help nervous students feel warm and comfortable.
-          </p>
-
-          <p>
-            Some students learn whole texts by heart, while others look for
-            alternative ways to remember information.
+            <i>{item.example}</i>
           </p>
         </div>
-      </section>
+      ))}
 
-      {/* QUESTIONS */}
+      <hr />
 
-      <section className="lesson">
-        <h2>💬 Reading Questions</h2>
+      <h2>Exercise 1 — Fill in the Gaps</h2>
 
-        <div className="exercise-card">
-          <p>1. What has increased recently?</p>
+      <p>
+        She arrives at exactly 8 a.m. every day. It's like
+        <input name="gap1" onChange={handleChange} />
+      </p>
 
-          <p>2. Why do teachers speak softly?</p>
+      <p>
+        I can't decide whether to study medicine or law. I'm on the
+        <input name="gap2" onChange={handleChange} />
+      </p>
 
-          <p>3. What do some students learn by heart?</p>
+      <p>
+        He texted me completely out of the
+        <input name="gap3" onChange={handleChange} />
+      </p>
 
-          <p>4. What can happen suddenly during exams?</p>
+      <hr />
 
-          <p>5. How do students prepare for exams differently?</p>
-        </div>
-      </section>
+      <h2>Exercise 2 — Multiple Choice</h2>
 
-      {/* VOCABULARY EXERCISE */}
+      <p>1. What does "pipe dream" mean?</p>
 
-      <section className="lesson">
-        <h2>✏️ Complete the Sentences</h2>
+      <label>
+        <input type="radio" name="mc1" value="a" onChange={handleChange} />
+        A. A travel plan
+      </label>
 
-        <div className="exercise-card">
-          {vocabularyQuiz.map((item) => (
-            <div key={item.id}>
-              <p>
-                {item.id}. {item.question}
-              </p>
+      <label>
+        <input type="radio" name="mc1" value="b" onChange={handleChange} />
+        B. A useful idea
+      </label>
 
-              <input
-                type="text"
-                placeholder="Your answer..."
-                onChange={(e) => handleChange(item.id, e.target.value)}
-              />
-            </div>
-          ))}
+      <label>
+        <input type="radio" name="mc1" value="c" onChange={handleChange} />
+        C. An unrealistic dream
+      </label>
 
-          <button onClick={checkAnswers}>Check Answers</button>
+      <br />
+      <br />
 
-          {score !== null && (
-            <p className="score">You got {score} / 12 correct 🎯</p>
-          )}
-        </div>
-      </section>
+      <p>2. "I'm on it" means...</p>
 
-      {/* PRESENT PERFECT PASSIVE */}
+      <label>
+        <input type="radio" name="mc2" value="a" onChange={handleChange} />
+        A. I'm standing on something.
+      </label>
 
-      <section className="lesson">
-        <h2>🧠 Present Perfect Passive</h2>
+      <label>
+        <input type="radio" name="mc2" value="b" onChange={handleChange} />
+        B. I'm already dealing with it.
+      </label>
 
-        <div className="exercise-card">
-          <table className="grammar-table">
-            <thead>
-              <tr>
-                <th>Structure</th>
-                <th>Example</th>
-              </tr>
-            </thead>
+      <label>
+        <input type="radio" name="mc2" value="c" onChange={handleChange} />
+        C. I'm late.
+      </label>
 
-            <tbody>
-              <tr>
-                <td>have/has been + V3</td>
+      <hr />
 
-                <td>The work has been finished.</td>
-              </tr>
-            </tbody>
-          </table>
+      <h2>Exercise 3 — Match</h2>
 
-          <br />
+      <p>Write the correct letter.</p>
 
-          <p>
-            We use the Present Perfect Passive when the action is more important
-            than the person who did it.
-          </p>
+      <p>
+        1. hit it off
+        <input name="match1" onChange={handleChange} />
+      </p>
 
-          <p>Example:</p>
+      <p>
+        2. whip up
+        <input name="match2" onChange={handleChange} />
+      </p>
 
-          <p>The invitations have been sent.</p>
-        </div>
-      </section>
+      <p>
+        3. break a sweat
+        <input name="match3" onChange={handleChange} />
+      </p>
 
-      {/* GRAMMAR EXERCISE */}
+      <p>
+        4. out of the blue
+        <input name="match4" onChange={handleChange} />
+      </p>
 
-      <section className="lesson">
-        <h2>✍️ Present Perfect Passive Practice</h2>
+      <br />
 
-        <div className="exercise-card">
-          <p>1. The project __________ (finish).</p>
+      <p>A. make a lot of effort</p>
+      <p>B. unexpectedly</p>
+      <p>C. prepare quickly</p>
+      <p>D. become friends immediately</p>
 
-          <input
-            type="text"
-            onChange={(e) => handleGrammar("g1", e.target.value)}
-          />
+      <hr />
 
-          <p>2. A new school __________ (build).</p>
+      <h2>Exercise 4 — Replace the Phrase</h2>
 
-          <input
-            type="text"
-            onChange={(e) => handleGrammar("g2", e.target.value)}
-          />
+      <p>"An unrealistic idea."</p>
 
-          <p>3. All the guests __________ (invite).</p>
+      <input name="trans1" onChange={handleChange} />
 
-          <input
-            type="text"
-            onChange={(e) => handleGrammar("g3", e.target.value)}
-          />
+      <br />
+      <br />
 
-          <p>4. The room __________ (clean).</p>
+      <p>"Prepared dinner very quickly."</p>
 
-          <input
-            type="text"
-            onChange={(e) => handleGrammar("g4", e.target.value)}
-          />
+      <input name="trans2" onChange={handleChange} />
 
-          <p>5. The emails __________ (send).</p>
+      <hr />
 
-          <input
-            type="text"
-            onChange={(e) => handleGrammar("g5", e.target.value)}
-          />
+      <h2>Exercise 5 — Speaking Challenge</h2>
 
-          <button onClick={checkGrammar}>Check Grammar</button>
+      <p>Create your own sentence using:</p>
 
-          {grammarScore !== null && (
-            <p className="score">You got {grammarScore} / 5 correct ✨</p>
-          )}
-        </div>
-      </section>
+      <ul>
+        <li>be on the fence</li>
+        <li>hit it off</li>
+        <li>I'm on it</li>
+      </ul>
 
-      {/* LEND / BORROW */}
+      <textarea rows="6" placeholder="Write your own sentences..." />
 
-      <section className="lesson">
-        <h2>🔄 Lend vs Borrow</h2>
+      <br />
+      <br />
 
-        <div className="exercise-card">
-          <p>
-            <b>Lend</b> = give something to someone temporarily.
-          </p>
+      <button onClick={checkAnswers}>Check Answers</button>
 
-          <p>
-            <b>Borrow</b> = take something from someone temporarily.
-          </p>
-
-          <hr />
-
-          <p>1. Can you ___ me your pen?</p>
-
-          <select onChange={(e) => handleLendBorrow("l1", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="lend">lend</option>
-
-            <option value="borrow">borrow</option>
-          </select>
-
-          <p>2. I need to ___ some money from my friend.</p>
-
-          <select onChange={(e) => handleLendBorrow("l2", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="lend">lend</option>
-
-            <option value="borrow">borrow</option>
-          </select>
-
-          <p>3. Could you ___ me your notes?</p>
-
-          <select onChange={(e) => handleLendBorrow("l3", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="lend">lend</option>
-
-            <option value="borrow">borrow</option>
-          </select>
-
-          <p>4. She asked if she could ___ my laptop.</p>
-
-          <select onChange={(e) => handleLendBorrow("l4", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="lend">lend</option>
-
-            <option value="borrow">borrow</option>
-          </select>
-
-          <p>5. I never ___ expensive things to strangers.</p>
-
-          <select onChange={(e) => handleLendBorrow("l5", e.target.value)}>
-            <option value="">Choose</option>
-
-            <option value="lend">lend</option>
-
-            <option value="borrow">borrow</option>
-          </select>
-
-          <button onClick={checkLendBorrow}>Check Answers</button>
-
-          {lendBorrowScore !== null && (
-            <p className="score">You got {lendBorrowScore} / 5 correct 🎯</p>
-          )}
-        </div>
-      </section>
-
-      {/* SPEAKING */}
-
-      <section className="lesson">
-        <h2>🗣 Speaking Practice</h2>
-
-        <div className="exercise-card">
-          <p>1. What is your attitude to exams?</p>
-
-          <p>2. Have you ever failed an important test?</p>
-
-          <p>3. Do you usually learn things by heart?</p>
-
-          <p>4. What is a good alternative to studying late at night?</p>
-
-          <p>5. Have you ever borrowed something valuable?</p>
-        </div>
-      </section>
-    </main>
+      {score !== null && <h2>Your score: {score} / 11</h2>}
+    </div>
   );
 }
 

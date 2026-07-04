@@ -20,7 +20,7 @@ function Home() {
             <button>GermanTravelLesson</button>
           </Link>
           <Link to="/lesson3">
-            <button>Lesson 3</button>
+            <button>new idioms</button>
           </Link>
           <Link to="/lesson4">
             <button>Lesson 4</button>
